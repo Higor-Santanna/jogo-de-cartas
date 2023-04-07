@@ -1,5 +1,5 @@
 import { gerarCarta } from "./services/takeCard.js";
-import {cardCoringa, cardJogador1, cardJogador2} from "./objects/cards.js";
+import { cardCoringa, cardJogador1, cardJogador2 } from "./objects/cards.js";
 
 const botaoCoringa = document.getElementById('tirar-carta-coringa')
 const botaoJogador1 = document.getElementById('tirar-carta-jogador-1')
@@ -9,7 +9,7 @@ const tirarCarta = document.querySelectorAll('.botao-tirar-carta')
 botaoCoringa.addEventListener('click', () => {
     tirarCartaCoringa()
     tirarCarta.forEach((botao) => {
-      botao.removeAttribute('disabled')
+        botao.removeAttribute('disabled')
     })
 })
 
@@ -47,8 +47,8 @@ async function tirarCartaJogador1() {
     document.getElementById('carta').src = imagemCarta1
 
     nipeDaCarta(cardJogador1)
-    descobrirForcaDaCarta(cardJogador2)
-    
+    descobrirForcaDaCarta(cardJogador1)
+
     if (alguemJogou) {
         compararCartas(cardJogador1, cardJogador2, cardCoringa);
     } else {
@@ -76,80 +76,76 @@ async function tirarCartaJogador2() {
     }
 }
 
-function nipeDaCarta(carta){
-    const nipeCarta = carta.nipe  
+function nipeDaCarta(carta) {
+    const nipeCarta = carta.nipe
     return nipeCarta
 }
 
-function descobrirForcaDaCarta(carta){
-	let valor = carta.value;
+function descobrirForcaDaCarta(carta) {
+    let valor = carta.value;
 
-	if(valor === "ACE") {
-		valor = 1;
-	} else if (valor === "QUEEN") {
-		valor = 11;
-	} else if (valor === "JACK") {
-		valor = 12;
-	} else if (valor === "KING") {
-		valor = 13;
-	} else {
+    if (valor === "ACE") {
+        valor = 1;
+    } else if (valor === "QUEEN") {
+        valor = 11;
+    } else if (valor === "JACK") {
+        valor = 12;
+    } else if (valor === "KING") {
+        valor = 13;
+    } else {
         valor;
     }
 
     return valor;
 }
 
-function habilitarBotao(habilitar){
+async function compararCartas(jogador1, jogador2, coringa) {
+    setTimeout(function () {
+        if (jogador1.value && (jogador1.nipe === coringa.nipe) > jogador2.value) {
+            alertWinner('jogador 1')
     
-}
-
-async function compararCartas(jogador1, jogador2, coringa){
-    setTimeout(function(){
-        if(jogador1.value && (jogador1.nipe === coringa.nipe) > jogador2.value){
-            alertWinner('jogador 1')
-        
-        } else if(jogador1.value < jogador2.value && (jogador2.nipe === coringa.nipe)){
+        } else if (jogador1.value < jogador2.value && (jogador2.nipe === coringa.nipe)) {
             alertWinner('jogador 2')
-        
-        } else if(jogador1.value && (jogador1.nipe === coringa.nipe) > jogador2.value && (jogador2.nipe === coringa.nipe)){
+    
+        } else if (jogador1.value && (jogador1.nipe === coringa.nipe) > jogador2.value && (jogador2.nipe === coringa.nipe)) {
             alertWinner('jogador 1')
-            
-        } else if(jogador1.value && (jogador1.nipe === coringa.nipe) < jogador2.value && (jogador2.nipe === coringa.nipe)){
+    
+        } else if (jogador1.value && (jogador1.nipe === coringa.nipe) < jogador2.value && (jogador2.nipe === coringa.nipe)) {
             alertWinner('jogador 2')
-
-        } else if(jogador1.value && (jogador1.nipe === coringa.nipe) < jogador2.value){
+    
+        } else if (jogador1.value && (jogador1.nipe === coringa.nipe) < jogador2.value) {
             alertWinner('jogador 1')
-        
-        } else if(jogador1.value > jogador2.value && (jogador2.nipe === coringa.nipe)){
+    
+        } else if (jogador1.value > jogador2.value && (jogador2.nipe === coringa.nipe)) {
             alertWinner('jogador 2')
-
-        } else if(jogador1.value && (jogador1.nipe === coringa.nipe) === jogador2.value){
+    
+        } else if (jogador1.value && (jogador1.nipe === coringa.nipe) === jogador2.value) {
             alertWinner('jogador 1')
-        
-        } else if(jogador1.value === jogador2.value && (jogador2.nipe === coringa.nipe)){
+    
+        } else if (jogador1.value === jogador2.value && (jogador2.nipe === coringa.nipe)) {
             alertWinner('jogador 2')
-
-        } else if(jogador1.value && (jogador1.nipe === coringa.nipe) === jogador2.value && (jogador2.nipe === coringa.nipe)){
+    
+        } else if (jogador1.value && (jogador1.nipe === coringa.nipe) === jogador2.value && (jogador2.nipe === coringa.nipe)) {
             alertTie()
-        
-        } else if((jogador1.value && (jogador1.nipe != coringa.nipe)) > (jogador2.value && (jogador2.nipe != coringa.nipe))){
+    
+        } else if(jogador1.value > jogador2.value){
             alertWinner('jogador 1')
-            
-        } else if((jogador1.value && (jogador1.nipe != coringa.nipe)) < (jogador2.value && (jogador2.nipe != coringa.nipe))){
+
+        } else if (jogador1.value < jogador2.value){
             alertWinner('jogador 2')
-        
-        } else if((jogador1.value && (jogador1.nipe != coringa.nipe)) === (jogador2.value && (jogador2.nipe != coringa.nipe))) {
+
+        } else if(jogador1.value == jogador2.value){
             alertTie()
         }
     }, 4000)
 }
 
-function alertWinner(jogador){
+function alertWinner(jogador) {
     alert(`${jogador} venceu`)
     window.location.reload();
 }
 
-function alertTie(){
+function alertTie() {
     alert(`Vish deu empate`)
     window.location.reload();
 }
