@@ -137,7 +137,7 @@ async function compararCartas(jogador1, jogador2, coringa) {
         } else if(jogador1.value == jogador2.value){
             alertTie()
         }
-    }, 4000)
+    }, 10000)
 }
 
 function alertWinner(jogador) {

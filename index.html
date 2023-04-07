@@ -4,21 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
     <title>Jogo de cartas</title>
 </head>
 
 <body>
-    <h1>Requisições com o fetch</h1>
-    <div>
-        <h2>Carta Coringa</h2>
-        <img id="carta-coringa" src="" alt="carta coringa">
-        <button id="tirar-carta-coringa">Tirar carta coringa</button>
+    <h1 class="title">Desempate o Jogo</h1>
+    <p class="game-introduction">
+        O jogo funciona da seguinte maneira. Ele possui três cartas sendo elas uma para cada
+        jogador e a carta coringa. Primeiro é tirado a carta coringa, ela determina o nipe que será o
+        mais forte dentre os 4 nipes do baralho. Depois é retirado as cartas dos jogadores (na
+        ordem que você quiser). Feito esses passos ele, compara os valores das duas cartas e o nipe
+        delas com o do coringa.
+        <br>
+        Vence aquele que tiver o maior valor ou o com o mesmo nipe do coringa.
+        <br>
+        Caso a carta tenha um valor menor que a outra, porém como mesmo nipe do coringa ela irá
+        vencer a partida.
+        EX:
+    </p>
+
+    <p class="winner-game-example">Vencendor</p>
+    <ul class="game-example">
+        <li>
+            <img src="./images/1-removebg-preview.png" alt="carta 5 de ouros">
+            <p>Carta Coringa</p>
+        </li>
+        <li>
+            <img src="./images/3-removebg-preview.png" alt="carta 3 de ouros">
+            <p>Jogador 1</p>
+        </li>
+        <li>
+            <img src="./images/2-removebg-preview.png" alt="carta 10 de espadas">
+            <p>Jogador 2</p>
+        </li>
+    </ul>
+
+    <p class="paragraph-game-example">Nesse exemplo o jogador 1 vence, mesmo ele tendo o menor valor que o jogador 2</p>
+
+    <div class="order-forces">
+        <img src="./images/Design_sem_nome-removebg-preview.png" alt="seta">
+        <h2>Ordem de Forças</h2>
+        <img src="./images/Design_sem_nome-removebg-preview.png" alt="seta">
     </div>
-    <img id="carta" src="" alt="Carta">
-    <img id="segunda-carta" src="" alt="carta2">
-    <br>
-    <button id="tirar-carta-jogador-1" disabled class="botao-tirar-carta">Tirar carta jogador 1</button>
-    <button id="tirar-carta-jogador-2" disabled class="botao-tirar-carta">Tirar carta jogador 2</button>
+
+    <p class="forces-order"> (---- Mais fraco ----)  A - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - Q - J - K (---- Mais Forte ----)</p>
+
+    <div class="centralize-backgroud-cards">
+        <div class="backgroud-cards">
+            <div class="joker-card">
+                <img id="carta-coringa" src="./images/1-removebg-preview.png" alt="carta coringa">
+                <button id="tirar-carta-coringa">Tirar carta coringa</button>
+            </div>
+    
+            <div>
+                <div>
+                    <img id="carta" src="./images/1-removebg-preview.pn" alt="carta">
+                    <button id="tirar-carta-jogador-1" disabled class="botao-tirar-carta">Tirar carta jogador 1</button>
+                </div>
+                <div>
+                    <img id="segunda-carta" src="./images/9-de-espadas.avif" alt="carta2">
+                    <button id="tirar-carta-jogador-2" disabled class="botao-tirar-carta">Tirar carta jogador 2</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./scripts/index.js" type="module"></script>
 </body>
 
