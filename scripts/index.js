@@ -10,6 +10,8 @@ botaoCoringa.addEventListener('click', () => {
     tirarCartaCoringa()
     tirarCarta.forEach((botao) => {
         botao.removeAttribute('disabled')
+        botao.classList.remove("disabled")
+        botao.classList.add("active")
     })
 })
 
@@ -44,7 +46,7 @@ async function tirarCartaJogador1() {
     const carta = await gerarCarta()
     cardJogador1.setCardJogador1(carta)
     const imagemCarta1 = cardJogador1.image
-    document.getElementById('carta').src = imagemCarta1
+    document.getElementById('primeira-carta').src = imagemCarta1
 
     nipeDaCarta(cardJogador1)
     descobrirForcaDaCarta(cardJogador1)
@@ -134,10 +136,10 @@ async function compararCartas(jogador1, jogador2, coringa) {
         } else if (jogador1.value < jogador2.value){
             alertWinner('jogador 2')
 
-        } else if(jogador1.value == jogador2.value){
+        } else if(jogador1.value === jogador2.value){
             alertTie()
         }
-    }, 10000)
+    }, 4000)
 }
 
 function alertWinner(jogador) {
