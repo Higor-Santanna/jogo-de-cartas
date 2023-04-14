@@ -1,0 +1,31 @@
+@media(max-width: 425px){
+    .title{
+        font-size: 35px;
+    }
+    
+    .game-introduction{
+        font-size: 15px;
+    }
+    
+    .game-example li img{
+        width: 130px;
+        height: 130px;
+    }
+
+    .paragraph-game-example{
+        font-size: 15px;
+    }
+
+    .order-forces{
+        font-size: 17px;
+    }
+
+    .order-forces img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .forces-order{
+        font-size: 15px;
+    }
+}
