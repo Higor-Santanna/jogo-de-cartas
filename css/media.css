@@ -29,3 +29,53 @@
         font-size: 15px;
     }
 }
+
+@media(max-width: 390px){
+    .game-example li img{
+        width: 120px;
+        height: 120px;
+    }
+
+    .game-example li{
+        font-size: 14px;
+    }
+
+    .centralize-backgroud-cards .backgroud-cards img{
+        width: 136px;
+        height: 224px;
+    }
+
+    .centralize-backgroud-cards .backgroud-cards button{
+        width: 136px;
+        height: 30px;
+    }
+}
+
+@media(max-width: 320px){
+    .winner-game-example{
+        font-size: 14px;
+    }
+
+    .game-example li img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .game-example li{
+        font-size: 13px;
+    }
+
+    .order-forces{
+        justify-content: center;
+        font-size: 13px;
+    }
+    
+    .order-forces img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .forces-order{
+        font-size: 14px;
+    }
+}

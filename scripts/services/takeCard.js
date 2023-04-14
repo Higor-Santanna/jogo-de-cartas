@@ -1,19 +1,19 @@
-async function criarBaralhoEmbaralhado1() {
+async function createShuffledDeck() {
     const url ="https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
-    const resposta = await fetch(url)
-    return await resposta.json()
+    const response = await fetch(url)
+    return await response.json()
 }
 
-async function tirandoCarta(deck_id) {
+async function takingCard(deck_id) {
     const url =
         `https://www.deckofcardsapi.com/api/deck/${deck_id}/draw/?count=1`
-    const resposta = await fetch(url)
-    return await resposta.json()
+    const response = await fetch(url)
+    return await response.json()
 }
 
-async function gerarCarta(){
-    const baralho = await criarBaralhoEmbaralhado1()
-    return await tirandoCarta(baralho.deck_id)
+async function generateCard(){
+    const cheap = await createShuffledDeck()
+    return await takingCard(cheap.deck_id)
 }
 
-export { gerarCarta }
+export { generateCard }
