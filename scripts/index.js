@@ -1,5 +1,5 @@
-import { generateCard } from "./services/takeCard.js";
-import { cardCoringa, cardJogador1, cardJogador2 } from "./objects/cards.js";
+import { drawJokerCard } from "./services/jokerCard.js";
+import { drawCardPlayer1, tirarCartaJogador2 } from "./services/cardsPlayers.js";
 
 const jokerButtonEvents = document.getElementById('tirar-carta-coringa')
 const buttonPlayer1 = document.getElementById('tirar-carta-jogador-1')
@@ -22,61 +22,6 @@ buttonPlayer1.addEventListener('click', () => {
 buttonPlayer2.addEventListener('click', () => {
     tirarCartaJogador2()
 })
-
-let someonePlayed = false;
-
-async function drawJokerCard() {
-    const card = await generateCard()
-    cardCoringa.setCardCoringa(card)
-    const imageJokerCard = cardCoringa.image
-    document.getElementById('carta-coringa').src = imageJokerCard
-
-    nipeOfCard(cardCoringa)
-
-    if (someonePlayed) {
-        compareCards(cardJogador1, cardJogador2, cardCoringa);
-    } else {
-        someonePlayed = true;
-
-        return;
-    }
-}
-
-async function drawCardPlayer1() {
-    const card = await generateCard()
-    cardJogador1.setCardJogador1(card)
-    const imageCard1 = cardJogador1.image
-    document.getElementById('carta-jogador-1').src = imageCard1
-
-    nipeOfCard(cardJogador1)
-    discoverForceOfCard(cardJogador1)
-
-    if (someonePlayed) {
-        compareCards(cardJogador1, cardJogador2, cardCoringa);
-    } else {
-        someonePlayed = true;
-
-        return;
-    }
-}
-
-async function tirarCartaJogador2() {
-    const card = await generateCard()
-    cardJogador2.setCardJogador2(card)
-    const imageCard2 = cardJogador2.image
-    document.getElementById('carta-jogador-2').src = imageCard2
-
-    nipeOfCard(cardJogador2)
-    discoverForceOfCard(cardJogador2)
-
-    if (someonePlayed) {
-        compareCards(cardJogador1, cardJogador2, cardCoringa);
-    } else {
-        someonePlayed = true;
-
-        return;
-    }
-}
 
 function nipeOfCard(card) {
     const nipeCard = card.nipe
@@ -151,3 +96,5 @@ function alertTie() {
     alert(`Vish deu empate`)
     window.location.reload();
 }
+
+export { nipeOfCard, discoverForceOfCard, compareCards }
