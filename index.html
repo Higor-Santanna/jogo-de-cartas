@@ -19,27 +19,15 @@
 <body>
     <h1 class="title">Desempate o Jogo</h1>
     <p class="game-introduction">
-        O jogo funciona da seguinte maneira. Ele possui três cartas sendo elas uma para cada
-        jogador e a carta coringa. Primeiro é tirado a carta coringa, ela determina o nipe que será o
-        mais forte dentre os 4 nipes do baralho. Depois é retirado as cartas dos jogadores (na
-        ordem que você quiser). Feito esses passos ele, compara os valores das duas cartas e o nipe
-        delas com o do coringa.
+        O jogo funciona da seguinte maneira. Ele possui duas cartas sendo elas uma para cada
+        jogador. A ordem de retirada da carta indefere.
         <br>
-        Vence aquele que tiver o maior valor ou o com o mesmo nipe do coringa.
-        <br>
-        Caso a carta tenha um valor menor que a outra, porém como mesmo nipe do coringa ela irá
-        vencer a partida.
-        EX:
+        Vence aquele que tiver a carta com maior valor.
     </p>
 
-    <p class="winner-game-example">Vencendor</p>
     <ul class="game-example">
         <li>
             <img src="./images/1-removebg-preview.png" alt="carta 5 de ouros">
-            <p>Carta Coringa</p>
-        </li>
-        <li>
-            <img src="./images/3-removebg-preview.png" alt="carta 3 de ouros">
             <p>Jogador 1</p>
         </li>
         <li>
@@ -48,7 +36,7 @@
         </li>
     </ul>
 
-    <p class="paragraph-game-example">Nesse exemplo o jogador 1 vence, mesmo ele tendo o menor valor que o jogador 2</p>
+    <p class="paragraph-game-example">Nesse exemplo o jogador 2 é o vencedor</p>
 
     <div class="order-forces">
         <img src="./images/Design_sem_nome-removebg-preview.png" alt="seta">
@@ -60,19 +48,14 @@
 
     <div class="centralize-backgroud-cards">
         <div class="backgroud-cards">
-            <div class="joker-card">
-                <img id="carta-coringa" src="./images/carta.png" alt="carta coringa">
-                <button id="tirar-carta-coringa">Tirar carta coringa</button>
-            </div>
-    
             <div class="card-players">
                 <div>
                     <img id="carta-jogador-1" src="./images/carta.png" alt="carta">
-                    <button id="tirar-carta-jogador-1" disabled class="botao-tirar-carta disabled">Tirar carta jogador 1</button>
+                    <button id="tirar-carta-jogador-1" class="botao-tirar-carta">Tirar carta jogador 1</button>
                 </div>
                 <div>
                     <img id="carta-jogador-2" src="./images/carta.png" alt="carta2">
-                    <button id="tirar-carta-jogador-2" disabled class="botao-tirar-carta disabled">Tirar carta jogador 2</button>
+                    <button id="tirar-carta-jogador-2" class="botao-tirar-carta">Tirar carta jogador 2</button>
                 </div>
             </div>
         </div>
